@@ -29,43 +29,6 @@ import sys
 import re
 import random
 
-class Widget(QWidget):
-    def __init__(self, parent=None):
-        super(Widget, self).__init__(parent)
-
-        menu_widget = QListWidget()
-        for i in range(10):
-            item = QListWidgetItem("Item {}".format(i))
-            item.setTextAlignment(Qt.AlignCenter)
-            menu_widget.addItem(item)
-
-        text_widget = QLabel()
-        button = QPushButton("Something")
-
-        content_layout = QVBoxLayout()
-        content_layout.addWidget(text_widget)
-        content_layout.addWidget(button)
-        main_widget = QWidget()
-        main_widget.setLayout(content_layout)
-
-        layout = QHBoxLayout()
-        layout.addWidget(menu_widget, 1)
-        layout.addWidget(main_widget, 4)
-        self.setLayout(layout)
-class Form(QDialog):
-    def __init__(self, parent=None):
-        ui_file = QFile("mainwindow.ui")
-        ui_file.open(QFile.ReadOnly)
-
-        loader = QUiLoader()
-        self.window = loader.load(ui_file)
-        self.window.pushButton.clicked.connect(self.say_hello)
-        self.window.show()
-
-    @Slot()
-    def say_hello(self):
-        print("Button clicked, Hello!")
-
 class CB():
     def __init__(self, parent=None):
         #load ui
